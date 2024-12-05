@@ -12,12 +12,12 @@
     {{-- @extends('templates.footer') --}}
     {{-- @section('content') --}}
 
-        <div class="container-fluid d-flex flex-column" style="background-color: white; height: 91vh">
+        <div class="container-fluid d-flex flex-column" style="background-color: e9f0e1; height: 91vh">
             <div class="text-center">
                 <img src="foodSaver_logo.svg" style="width: 50vw" class="align-center">
                 <p class="fs-4 fst-italic">Your food logging app</p>
             </div>
-            <div name="loginBox" class="container d-flex flex-column justify-content-center rounded-5 shadow-lg" style="background-color: snow">
+            <div name="loginBox" class="container d-flex flex-column justify-content-center rounded-5 shadow-lg" style="background-color: white">
                 <p class="fs-1 fw-bold text-center m-4">Login</p>
 
                 <form method="POST" action="{{ route('login') }}">
@@ -29,7 +29,7 @@
                             <x-input-label for="email" :value="__('Email Address')" />
                             <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                        </div>    
+                        </div>
                     </div>
 
                     <!-- Password -->
