@@ -12,7 +12,7 @@
     {{-- @extends('templates.footer') --}}
     {{-- @section('content') --}}
 
-        <div class="container-fluid d-flex flex-column" style="background-color: #e9f0e1; height: 100vh">
+        <div class="container-fluid d-flex flex-column" style="background-color: e9f0e1; height: 91vh">
             <div class="text-center">
                 <img src="foodSaver_logo.svg" style="width: 50vw" class="align-center">
                 <p class="fs-4 fst-italic">Your food logging app</p>
