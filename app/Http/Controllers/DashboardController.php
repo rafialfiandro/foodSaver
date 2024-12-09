@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 
 class DashboardController extends Controller
 {
@@ -22,23 +23,32 @@ class DashboardController extends Controller
 
     public function store(Request $request)
     {
+        // Validate the request
         $request->validate([
             'name' => 'required|string|max:255',
         ]);
 
-        $userId = auth()->id();
-        $tableName = "user_{$userId}_foods";
+        $userId = auth()->id(); // Get the logged-in user's ID
+        $tableName = "user_{$userId}_foods"; // Define the table name dynamically
 
-        if (Schema::hasTable($tableName)) {
-            DB::table($tableName)->insert([
-                'name' => $request->name,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-            return redirect()->route('dashboard')->with('success', 'Food added successfully!');
+        // Check if the table exists
+        if (!Schema::hasTable($tableName)) {
+            // Create the table if it does not exist
+            Schema::create($tableName, function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->timestamps();
+            });
         }
 
-        return redirect()->route('dashboard')->withErrors('Food table not found for this user.');
+        // Insert the food item into the table
+        DB::table($tableName)->insert([
+            'name' => $request->name,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->route('dashboard')->with('success', 'Food added successfully!');
     }
 
     public function edit($id)
