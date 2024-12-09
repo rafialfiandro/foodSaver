@@ -50,7 +50,7 @@
                     <div class="justify-items-center">
                         <form action="{{ route('dashboard.foods.store') }}" method="POST">
                             @csrf
-                            <input type="text" name="name" placeholder="Enter food name" required>
+                            <input type="text" name="name" placeholder="Enter food name" required class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             <button type="submit">Add Food</button>
                         </form>
                     </div>
