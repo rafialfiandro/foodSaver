@@ -14,7 +14,7 @@ class DashboardController extends Controller
         $tableName = "user_{$userId}_foods";
 
         $foods = Schema::hasTable($tableName)
-            ? DB::table($tableName)->paginate(9) // Paginate items by 10
+            ? DB::table($tableName)->paginate(7) // Paginate items by 10
             : collect(); // Return empty collection if table doesn't exist
 
         return view('dashboard', compact('foods'));

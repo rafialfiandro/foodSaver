@@ -10,20 +10,20 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6">
 
-                    <h2 class="text-center text-2xl">Your Food List</h2>
+                    <h2 class="text-center text-2xl pb-4">Your Food List</h2>
 
                     <table class="table-auto w-full border-collapse border border-gray-300">
                         <tbody>
                         @foreach ($foods as $food)
-                            <tr>
+                            <tr class="hover:bg-gray-100">
                                 <!-- Food Name column expands to fill remaining space -->
                                 <td class="border border-gray-300 px-4 py-2 w-full">{{ $food->name }}</td>
 
                                 <!-- Edit button only takes as much space as it needs -->
                                 <td class="border border-gray-300 px-4 py-2 text-center whitespace-nowrap">
                                     <a href="{{ route('dashboard.foods.edit', $food->id) }}"
-                                        {{--                                       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">--}}
-                                    >Edit
+                                       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                    Edit
                                     </a>
                                 </td>
 
@@ -33,7 +33,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
-                                                {{--                                                class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"--}}
+                                                class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
                                                 onclick="return confirm('Are you sure you want to delete this item?')">
                                             Delete
                                         </button>
@@ -47,11 +47,11 @@
                     <div class="mt-4">
                         {{ $foods->links() }}
                     </div>
-                    <div class="justify-items-center">
+                    <div class="justify-items-center justify-evenly">
                         <form action="{{ route('dashboard.foods.store') }}" method="POST">
                             @csrf
                             <input type="text" name="name" placeholder="Enter food name" required class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                            <button type="submit">Add Food</button>
+                            <button type="submit" class="px-4 py-2 bg-green-400 text-white rounded hover:bg-green-600">Add Food</button>
                         </form>
                     </div>
                 </div>

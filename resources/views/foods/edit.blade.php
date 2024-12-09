@@ -27,7 +27,7 @@
                         <!-- Submit Button -->
                         <div class="flex justify-center">
                             <button type="submit"
-                                    class="px-4 py-2 text-white font-semibold rounded bg-gray-100 mr-5"
+                                    class="px-4 py-2 text-white font-semibold rounded bg-green-400 mr-5"
                                 >Save Changes
                             </button>
                             <a href="{{ route('dashboard') }}" class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">
