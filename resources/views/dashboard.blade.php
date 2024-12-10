@@ -27,8 +27,8 @@
                                     <!-- Edit button only takes as much space as it needs -->
                                     <td class="border border-gray-300 px-4 py-2 text-center whitespace-nowrap">
                                         <a href="{{ route('dashboard.foods.edit', $food->id) }}"
-                                           class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-                                        Edit
+                                           class="inline-flex items-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                                        EDIT
                                         </a>
                                     </td>
 
@@ -38,9 +38,9 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                                    class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                                                    class="inline-flex items-center px-4 py-2 bg-red-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
                                                     onclick="return confirm('Are you sure you want to delete this item?')">
-                                                Delete
+                                                DELETE
                                             </button>
                                         </form>
                                     </td>
@@ -56,7 +56,7 @@
                         <form action="{{ route('dashboard.foods.store') }}" method="POST">
                             @csrf
                             <input type="text" name="name" placeholder="Enter food name" required class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                            <button type="submit" class="px-4 py-2 bg-green-400 text-white rounded hover:bg-green-600">Add Food</button>
+                            <button type="submit" class="inline-flex items-center px-4 py-2 bg-green-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">ADD FOOD</button>
                         </form>
                     </div>
                 </div>
