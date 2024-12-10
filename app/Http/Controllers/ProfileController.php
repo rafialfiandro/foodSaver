@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Schema;
 
 class ProfileController extends Controller
 {
@@ -47,6 +48,14 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
+
+        // Define the user's table name
+        $tableName = "user_{$user->id}_foods";
+
+        // Check if the table exists and drop it
+        if (Schema::hasTable($tableName)) {
+            Schema::drop($tableName);
+        }
 
         Auth::logout();
 
