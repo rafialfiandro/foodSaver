@@ -1,4 +1,4 @@
-id: 67991
+id: 67996
 name: foodSaver
 environments:
   production:
@@ -8,4 +8,6 @@ environments:
     build:
       - 'composer install --no-dev'
       - 'php artisan event:cache'
-      # - 'npm ci && npm run build && rm -rf node_modules'
+#      - 'composer require laravel/breeze'
+#      - 'npm ci && npm run build'
+
